@@ -1,0 +1,724 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Tamanegi";
+  font-weight: normal;
+  src: url(/Fonts/玉ねぎ.woff) format("woff");
+}
+@font-face {
+  font-family: "Yumincho";
+  font-weight: normal;
+  src: url(/Fonts/yumin.woff) format("woff");
+}
+html {
+  font-size: 100%;
+  /* スルスル動くアニメーション */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Yumincho", sans-serif;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container_bg {
+  background-image: url(/images/background_black.png);
+  background-size: 100%;
+}
+
+.wrapper {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+@media screen and (min-width: 768px) {
+  .wrapper {
+    margin: 0 auto;
+    padding: 0 230px;
+  }
+}
+
+.introduction {
+  padding-top: 20px;
+}
+@media screen and (min-width: 768px) {
+  .introduction {
+    padding-top: 40px;
+  }
+}
+.introduction .introduction_title {
+  font-family: "Tamanegi", sans-serif;
+  font-size: 36px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .introduction .introduction_title {
+    text-align: center;
+    font-size: 45px;
+  }
+}
+.introduction .sp_hidden {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .introduction .sp_hidden {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin: 54px 0;
+    font-size: 20px;
+    position: relative;
+  }
+}
+@media screen and (min-width: 768px) {
+  .introduction .sp_hidden .branch_name:hover {
+    color: #a20000;
+    transition: 0.4s;
+  }
+  .introduction .sp_hidden .branch_name:hover::after {
+    border-top-color: #a20000;
+    transition: 0.4s;
+  }
+  .introduction .sp_hidden .branch_name::after {
+    content: "";
+    position: absolute;
+    transform: translateX(100%);
+    top: 8px;
+    border: 6px solid transparent;
+    border-top: 7px solid #fff;
+  }
+}
+@media screen and (min-width: 768px) {
+  .introduction .sp_hidden .before_line::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 50px;
+    transform: translateX(-2500%);
+    background-color: #fff;
+    position: absolute;
+    top: -13px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 90px;
+    margin-left: -26px;
+  }
+}
+.introduction .flex .MenuGroup_No1 {
+  margin-top: 20px;
+}
+.introduction .flex .shibata_table {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex .shibata_table {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex .shibata_meat {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex .shibata_meat {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex .swiper {
+  max-width: 500px;
+  width: 100%;
+}
+.introduction .flex .slider-thumbnail .swiper-slide {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  width: 25%;
+}
+.introduction .flex .slider-thumbnail .swiper-slide .shibataTable_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex .slider-thumbnail .swiper-slide .shibataTable_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex .slider-thumbnail .swiper-slide .shibataMeat_thunb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex .slider-thumbnail .swiper-slide .shibataMeat_thunb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex .slider-thumbnail .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+.introduction .flex .swiper-button-next,
+.introduction .flex .swiper-button-prev {
+  color: #a20000;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex .details {
+    margin-left: -24px;
+  }
+}
+.introduction .flex .details_title p {
+  font-weight: bold;
+}
+.introduction .flex .details_title p:nth-child(1) {
+  margin-top: 24px;
+  font-size: 22px;
+}
+.introduction .flex .details_title p:nth-child(2) {
+  font-size: 33px;
+  margin-bottom: 28px;
+}
+.introduction .flex .details_subtitle,
+.introduction .flex .recommend {
+  margin: 42px 0 12px;
+  font-size: 24px;
+  position: relative;
+}
+.introduction .flex .details_subtitle::before,
+.introduction .flex .recommend::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 5px;
+  height: 28px;
+  background-color: #a20000;
+  top: -2px;
+  left: -12px;
+}
+.introduction .flex .sub_detail,
+.introduction .flex .recommend_detail {
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+.introduction .flex .recommend_detail {
+  line-height: 1.7;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 90px;
+  }
+}
+.introduction .flex_chayamachi .swiper {
+  max-width: 500px;
+  width: 100%;
+}
+.introduction .flex_chayamachi .chayamachi_meal {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .chayamachi_meal {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_chayamachi .chayamachi_layout {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .chayamachi_layout {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_chayamachi .chayamachi_meat {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .chayamachi_meat {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_chayamachi .chayamachi_table {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .chayamachi_table {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  width: 25%;
+}
+.introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiMeal_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiMeal_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiLayout_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiLayout_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiaMeat_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiaMeat_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiTable_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide .chayamachiTable_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_chayamachi .slider-thumbnail2 .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+.introduction .flex_chayamachi .swiper-button-next,
+.introduction .flex_chayamachi .swiper-button-prev {
+  color: #a20000;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_chayamachi .details {
+    transform: translateX(11%);
+  }
+}
+.introduction .flex_chayamachi .details_title p {
+  font-weight: bold;
+}
+.introduction .flex_chayamachi .details_title p:nth-child(1) {
+  margin-top: 24px;
+  font-size: 22px;
+}
+.introduction .flex_chayamachi .details_title p:nth-child(2) {
+  font-size: 33px;
+  margin-bottom: 28px;
+}
+.introduction .flex_chayamachi .details_subtitle,
+.introduction .flex_chayamachi .recommend {
+  margin: 42px 0 12px;
+  font-size: 24px;
+  position: relative;
+}
+.introduction .flex_chayamachi .details_subtitle::before,
+.introduction .flex_chayamachi .recommend::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 5px;
+  height: 28px;
+  background-color: #a20000;
+  top: -2px;
+  left: -12px;
+}
+.introduction .flex_chayamachi .sub_detail,
+.introduction .flex_chayamachi .recommend_detail {
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+.introduction .flex_chayamachi .recommend_detail {
+  line-height: 1.7;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 90px;
+  }
+}
+.introduction .flex_fukushima .swiper {
+  max-width: 500px;
+  width: 100%;
+}
+.introduction .flex_fukushima .fukushima_store {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .fukushima_store {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_fukushima .fukushima_meat {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .fukushima_meat {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_fukushima .fukushima_kidsspace {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .fukushima_kidsspace {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_fukushima .slider-thumbnail3 .swiper-slide {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  width: 25%;
+}
+.introduction .flex_fukushima .slider-thumbnail3 .swiper-slide .fukushimaStore_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .slider-thumbnail3 .swiper-slide .fukushimaStore_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_fukushima .slider-thumbnail3 .swiper-slide .fukushimaMeat_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .slider-thumbnail3 .swiper-slide .fukushimaMeat_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_fukushima .slider-thumbnail3 .swiper-slide .fukushimaKidsspace_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .slider-thumbnail3 .swiper-slide .fukushimaKidsspace_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_fukushima .slider-thumbnail3 .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+.introduction .flex_fukushima .swiper-button-next,
+.introduction .flex_fukushima .swiper-button-prev {
+  color: #a20000;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_fukushima .details {
+    transform: translateX(15%);
+  }
+}
+.introduction .flex_fukushima .details_title p {
+  font-weight: bold;
+}
+.introduction .flex_fukushima .details_title p:nth-child(1) {
+  margin-top: 24px;
+  font-size: 22px;
+}
+.introduction .flex_fukushima .details_title p:nth-child(2) {
+  font-size: 33px;
+  margin-bottom: 28px;
+}
+.introduction .flex_fukushima .details_subtitle,
+.introduction .flex_fukushima .recommend {
+  margin: 42px 0 12px;
+  font-size: 24px;
+  position: relative;
+}
+.introduction .flex_fukushima .details_subtitle::before,
+.introduction .flex_fukushima .recommend::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 5px;
+  height: 28px;
+  background-color: #a20000;
+  top: -2px;
+  left: -12px;
+}
+.introduction .flex_fukushima .sub_detail,
+.introduction .flex_fukushima .recommend_detail {
+  margin-bottom: 30px;
+  font-size: 17px;
+}
+.introduction .flex_fukushima .recommend_detail {
+  line-height: 1.7;
+}
+.introduction .d_none {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 90px;
+    margin-left: -80px;
+  }
+}
+.introduction .flex_purple .swiper {
+  max-width: 500px;
+  width: 100%;
+}
+.introduction .flex_purple .sagisu_store {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .sagisu_store {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_purple .sagisu_cyapuche {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .sagisu_cyapuche {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_purple .sagisu_egg {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .sagisu_egg {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_purple .sagisu_layout {
+  width: 370px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .sagisu_layout {
+    width: 500px;
+    height: 325px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+.introduction .flex_purple .slider-thumbnail4 .swiper-slide {
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  width: 25%;
+}
+.introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuStore_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuStore_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuCyapuche_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuCyapuche_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuEgg_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuEgg_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuLayout_thumb {
+  margin-top: 20px;
+  width: 97px;
+  height: 57px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .slider-thumbnail4 .swiper-slide .sagisuLayout_thumb {
+    width: 125px;
+    height: 77px;
+  }
+}
+.introduction .flex_purple .slider-thumbnail4 .swiper-slide.swiper-slide-thumb-active {
+  opacity: 1;
+}
+.introduction .flex_purple .swiper-button-next,
+.introduction .flex_purple .swiper-button-prev {
+  color: #a20000;
+}
+@media screen and (min-width: 768px) {
+  .introduction .flex_purple .details {
+    margin-left: -68px;
+  }
+}
+.introduction .flex_purple .details_title p {
+  font-weight: bold;
+}
+.introduction .flex_purple .details_title p:nth-child(1) {
+  margin-top: 24px;
+  font-size: 22px;
+}
+.introduction .flex_purple .details_title p:nth-child(2) {
+  font-size: 33px;
+  margin-bottom: 28px;
+}
+.introduction .flex_purple .details_subtitle,
+.introduction .flex_purple .recommend {
+  margin: 42px 0 12px;
+  font-size: 24px;
+  position: relative;
+}
+.introduction .flex_purple .details_subtitle::before,
+.introduction .flex_purple .recommend::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 5px;
+  height: 28px;
+  background-color: #a20000;
+  top: -2px;
+  left: -12px;
+}
+.introduction .flex_purple .sub_detail p {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.introduction .flex_purple .recommend_detail {
+  margin-bottom: 30px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+/*# sourceMappingURL=style.css.map */

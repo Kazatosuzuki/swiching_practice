@@ -1,0 +1,669 @@
+@charset 'UTF-8';
+// define fonts
+@font-face {
+    font-family: "Tamanegi";
+    font-weight: normal;
+    src: url(/Fonts/玉ねぎ.woff) format('woff');
+}
+
+@font-face {
+    font-family: 'Yumincho';
+    font-weight: normal;
+    src: url(/Fonts/yumin.woff) format('woff');
+}
+
+//Media Query
+$breakpoints: (
+    'sm': 'screen and (min-width: 576px)',
+    'md': 'screen and (min-width: 768px)',
+    'lg': 'screen and (min-width: 992px)',
+    'xl': 'screen and (min-width: 1500px)',
+) !default;
+
+// color
+$main_color: #fff;
+$font_color: #a20000;
+
+@mixin media($breakpoint) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+@mixin adjust_yohaku {
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+@mixin adjust_yohaku_header {
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+@mixin adjust_yohaku_dt {
+    margin: 0 auto;
+    padding: 0 230px;
+}
+
+@mixin flex_base {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 90px;
+}
+
+@mixin flex_between {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 90px;
+}
+
+@mixin store_title {
+    margin: 18px 0;
+    font-size: 20px;
+    position: relative;
+}
+
+@mixin brand_padding {
+    padding-right: 45px;
+}
+
+@mixin storetitle_before {
+    //疑似要素
+    content:"";
+    display:inline-block;
+    position: absolute;
+    width: 5px;
+    height: 28px;
+    background-color:$font_color;
+    top:-2px;
+    left:-12px;
+}
+
+@mixin store_subtitle {
+    font-size: 15px;
+}
+
+@mixin purpleMotsu_img {
+    margin-top: 45px;
+}
+
+
+@mixin branch {
+    font-size: 20px;
+    margin-top: 18px;
+    text-align: center;
+    padding: 0 50px;
+}
+
+@mixin branch_store {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 240px;
+    padding: 20px;
+    background-color: $main_color;
+    color: $font_color;
+    margin-bottom: 12px;
+}
+
+@mixin branchstore_hover {
+    background-color: $font_color;
+    color: $main_color;
+    transition: 0.4s;
+}
+
+@mixin branchstore_beforehover {
+    background-color: $main_color;
+    transition: 0.4s;
+}
+
+@mixin branchstore_afterhover {
+    border-top: 2px solid $main_color;
+    border-right: 2px solid $main_color;
+    transition: 0.4s;
+}
+
+@mixin branchstore_before {
+    // 矢印の斜め棒
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%) rotate(-45deg);
+    width: 15px;
+    height: 2px;
+    background-color: $font_color;
+}
+
+@mixin branchstore_after {
+    // 矢印
+    content: '';
+    width: 12px;
+    height: 12px;
+    transform: translateX(-90%);
+    border-top: 2px solid $font_color;
+    border-right: 2px solid $font_color;
+}
+
+@mixin storerecommend_title {
+    margin: 42px 0 12px;
+    font-size: 24px;
+    position: relative;
+}
+
+// swiper用
+@mixin swiper_slide_img {
+    width: 370px;
+    height: 250px;
+    object-fit: cover;
+}
+
+@mixin swiper_slideImg_dt {
+    width: 500px;
+    height: 325px;
+    object-fit: cover;
+}
+
+@mixin swiper_slide_thumbnail {
+    margin-top: 20px;
+    width: 97px;
+    height: 57px;
+    object-fit: cover;
+}
+
+@mixin swiper_slideThumbnail_dt {
+    width: 125px;
+    height: 77px;
+}
+
+// 共通項目
+html {
+    font-size: 100%;
+    /* スルスル動くアニメーション */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Yumincho', sans-serif;
+    color: $main_color;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container_bg {
+    background-image: url(/images/background_black.png);
+    background-size: 100%;
+}
+.wrapper {
+    max-width: 1500px;
+    width: 100%;
+    @include adjust_yohaku();
+    @include media(md) {
+        @include adjust_yohaku_dt();
+    }
+}
+// 共通項目ここまで
+
+// 店舗特徴＆メニューここから
+.introduction {
+    padding-top: 20px;
+    @include media(md) {
+        padding-top: 40px;
+    }
+    .introduction_title {
+        font-family: "Tamanegi", sans-serif;
+        font-size: 36px;
+        margin-bottom: 24px;
+        text-align: center;
+        @include media(md) {
+            text-align: center;
+            font-size: 45px;
+        }
+    }
+    .sp_hidden {
+        display: none;
+        @include media(md) {
+            display: flex;
+            justify-content: space-around;
+            align-items: baseline;
+            margin: 54px 0;
+            font-size: 20px;
+            position: relative;
+        }
+        .branch_name {
+            @include media(md) {
+                &:hover {
+                    color: $font_color;
+                    transition: 0.4s;
+                    &::after {
+                        border-top-color: $font_color;
+                        transition: 0.4s;
+                    }
+                }
+                &::after {
+                    // 逆三角形
+                    content: "";
+                    position: absolute;
+                    transform: translateX(100%); 
+                    top: 8px;
+                    border: 6px solid transparent;
+                    border-top: 7px solid $main_color; 
+                }
+            }
+        }
+        .before_line {
+            @include media(md) {
+                &::before {
+                    // 縦線
+                    content:"";
+                    display:inline-block;
+                    width:3px;
+                    height:50px;
+                    transform: translateX(-2500%); 
+                    background-color:$main_color;
+                    position:absolute;
+                    top:-13px;
+                }
+            }
+        }
+    }
+    .flex {
+        @include media(md) {
+            @include flex_base();
+            margin-left: -26px;
+        }
+        .MenuGroup_No1 {
+            margin-top: 20px;
+        }
+        .shibata_table {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .shibata_meat {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        // swiper scss
+        .swiper {
+            max-width: 500px;
+            width: 100%;
+        }
+        .slider-thumbnail {
+            .swiper-slide {
+                opacity: .5;
+                transition: opacity .5s;
+                width: calc(100% / 4);
+                .shibataTable_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .shibataMeat_thunb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+            }
+        }
+        .slider-thumbnail .swiper-slide.swiper-slide-thumb-active {
+            opacity: 1;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: $font_color;
+        }
+        .details {
+            @include media(md) {
+                margin-left: -24px;
+            }
+        }
+        .details_title {
+            p {
+                font-weight: bold;
+            }
+            p:nth-child(1) {
+                margin-top: 24px;
+                font-size: 22px;
+            }
+            p:nth-child(2) {
+                font-size: 33px;
+                margin-bottom: 28px;
+            }
+        }
+        .details_subtitle,
+        .recommend {
+            @include storerecommend_title();
+            &::before {
+                @include storetitle_before();
+            }
+        }
+        .sub_detail,
+        .recommend_detail {
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+        .recommend_detail {
+            line-height: 1.7;
+        }
+    }
+    .flex_chayamachi {
+        @include media(md) {
+            @include flex_base();
+        }
+        .swiper {
+            max-width: 500px;
+            width: 100%;
+        }
+        .chayamachi_meal {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .chayamachi_layout {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .chayamachi_meat {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .chayamachi_table {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .slider-thumbnail2 {
+            .swiper-slide {
+                opacity: .5;
+                transition: opacity .5s;
+                width: calc(100% / 4);
+                .chayamachiMeal_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .chayamachiLayout_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .chayamachiaMeat_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .chayamachiTable_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+            }
+        }
+        .slider-thumbnail2 .swiper-slide.swiper-slide-thumb-active {
+            opacity: 1;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: $font_color;
+        }
+        .details {
+            @include media(md) {
+                transform: translateX(11%);
+            }
+        }
+        .details_title {
+            p {
+                font-weight: bold;
+            }
+            p:nth-child(1) {
+                margin-top: 24px;
+                font-size: 22px;
+            }
+            p:nth-child(2) {
+                font-size: 33px;
+                margin-bottom: 28px;
+            }
+        }
+        .details_subtitle,
+        .recommend {
+            @include storerecommend_title();
+            &::before {
+                @include storetitle_before();
+            }
+        }
+        .sub_detail,
+        .recommend_detail {
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+        .recommend_detail {
+            line-height: 1.7;
+        }
+    }
+    .flex_fukushima {
+        @include media(md) {
+            @include flex_base();
+        }
+        .swiper {
+            max-width: 500px;
+            width: 100%;
+        }
+        .fukushima_store {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .fukushima_meat {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .fukushima_kidsspace {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .slider-thumbnail3 {
+            .swiper-slide {
+                opacity: .5;
+                transition: opacity .5s;
+                width: calc(100% / 4);
+                .fukushimaStore_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .fukushimaMeat_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .fukushimaKidsspace_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+            }
+        }
+        .slider-thumbnail3 .swiper-slide.swiper-slide-thumb-active {
+            opacity: 1;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: $font_color;
+        }
+        .details {
+            @include media(md) {
+                transform: translateX(15%);
+            }
+        }
+        .details_title {
+            p {
+                font-weight: bold;
+            }
+            p:nth-child(1) {
+                margin-top: 24px;
+                font-size: 22px;
+            }
+            p:nth-child(2) {
+                font-size: 33px;
+                margin-bottom: 28px;
+            }
+        }
+        .details_subtitle,
+        .recommend {
+            @include storerecommend_title();
+            &::before {
+                @include storetitle_before();
+            }
+        }
+        .sub_detail,
+        .recommend_detail {
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+        .recommend_detail {
+            line-height: 1.7;
+        }
+    }
+    //鷺州パーブル福島店ここから
+    // 初期状態は非表示
+    .d_none {
+        display: none;
+    }
+    .flex_purple {
+        @include media(md) {
+            @include flex_base();
+            margin-left: -80px;
+        }
+        .swiper {
+            max-width: 500px;
+            width: 100%;
+        }
+        .sagisu_store {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .sagisu_cyapuche {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .sagisu_egg {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .sagisu_layout {
+            @include swiper_slide_img();
+            @include media(md) {
+                @include swiper_slideImg_dt();
+            }
+        }
+        .slider-thumbnail4 {
+            .swiper-slide {
+                opacity: .5;
+                transition: opacity .5s;
+                width: calc(100% / 4);
+                .sagisuStore_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .sagisuCyapuche_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .sagisuEgg_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+                .sagisuLayout_thumb {
+                    @include swiper_slide_thumbnail();
+                    @include media(md) {
+                        @include swiper_slideThumbnail_dt();
+                    }
+                }
+            }
+        }
+        .slider-thumbnail4 .swiper-slide.swiper-slide-thumb-active {
+            opacity: 1;
+        }
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: $font_color;
+        }
+        .details {
+            @include media(md) {
+                margin-left: -68px;
+            }
+        }
+        .details_title {
+            p {
+                font-weight: bold;
+            }
+            p:nth-child(1) {
+                margin-top: 24px;
+                font-size: 22px;
+            }
+            p:nth-child(2) {
+                font-size: 33px;
+                margin-bottom: 28px;
+            }
+        }
+        .details_subtitle,
+        .recommend {
+            @include storerecommend_title();
+            &::before {
+                @include storetitle_before();
+            }
+        }
+        .sub_detail {
+            p {
+                font-size: 17px;
+                margin-bottom: 10px;
+            }
+        }
+        .recommend_detail {
+            margin-bottom: 30px;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+    }
+    //鷺州パーブル福島店ここまで
+}
+// 店舗特徴＆メニューここまで
